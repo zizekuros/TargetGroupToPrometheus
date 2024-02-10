@@ -42,7 +42,7 @@ Run the application by providing the necessary flags. You can view all available
 To run the tool with AWS credentials and target group details, use:
 
 ```sh
-./tg2prom -target-group-arn "<target_group_arn>" -listening-port "<port>" -job-name "your_target_name" -output "output_file_name.yaml" [-aws-profile "aws_profile"] [-access-key-id "your_access_key_id" -secret-access-key "your_secret_access_key"]
+./tg2prom -target-group-arn "<target_group_arn>" -listening-port "<port>" -job-name "your_target_name" -output "output_file_name.yaml" [-aws-profile "aws_profile"] [-aws-access-key-id "your_access_key_id" -aws-secret-access-key "your_secret_access_key"]
 ```
 
 ### Flags:
@@ -51,8 +51,8 @@ To run the tool with AWS credentials and target group details, use:
 - `job-name`: Name of the job, used as a label in the output file (required).
 - `output`: Name of the output YAML file (required).
 - `aws-profile`: AWS profile to use for credentials and configuration (optional).
-- `access-key-id`: AWS Access Key ID (optional, use if not using `aws-profile`).
-- `secret-access-key`: AWS Secret Access Key (optional, use if not using `aws-profile`).
+- `aws-access-key-id`: AWS Access Key ID (optional, use if not using `aws-profile`).
+- `aws-secret-access-key`: AWS Secret Access Key (optional, use if not using `aws-profile`).
 
 ## Example of Config Output
 
