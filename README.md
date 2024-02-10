@@ -42,7 +42,7 @@ Run the application by providing the necessary flags. You can view all available
 To run the tool with AWS credentials and target group details, use:
 
 ```sh
-./tg2prom -target-group-arn "<target_group_arn>" -listening-port "<port>" -job-name "your_target_name" -output "output_file_name.yaml" [-aws-profile "aws_profile"] [-access-key-id "your_access_key_id" -secret-access-key "your_secret_access_key"]
+./tg2prom -target-group-arn "<target_group_arn>" -listening-port "<port>" -job-name "your_target_name" -output "output_file_name.yaml" [-aws-profile "aws_profile"] [-access-key-id "your_access_key_id" -secret-access-key "[your_secret_access_key"]
 ```
 
 ### Flags:
