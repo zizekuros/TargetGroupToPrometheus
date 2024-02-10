@@ -6,7 +6,7 @@ It retrieves public IP addresses of instances registered with a specified target
 
 ## Pre-requisites
 
-- Go 1.15 or newer.
+- Go 1.20 or newer.
 - An AWS account and credentials with permissions to access Elastic Load Balancing (ELB) and EC2 services.
 
 ## Building the application
@@ -30,6 +30,32 @@ go build -o tg2prom
 ```
 
 This command compiles the application and generates an executable named `tg2prom`.
+
+### AWS Credentials Configuration
+
+It is recommended to set up your AWS credentials using the file-based configuration method. This involves creating or updating the AWS credentials file typically located at `~/.aws/credentials` on Linux and macOS, or `%USERPROFILE%\.aws\credentials` on Windows. This file should contain your access key ID and secret access key under a profile name.
+
+By default, the tool uses the AWS credentials stored under the `[default]` profile in this file. If you wish to use a different profile, you can specify this using the `-aws-profile` flag when running the tool. This allows you to easily switch between different AWS accounts or configurations.
+
+Example of a credentials file:
+
+```
+[default]
+aws_access_key_id = YOUR_DEFAULT_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_DEFAULT_SECRET_ACCESS_KEY
+
+[another-profile]
+aws_access_key_id = YOUR_OTHER_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_OTHER_SECRET_ACCESS_KEY
+```
+
+To use a profile other than the default, run the tool with the `-aws-profile` flag, like so:
+
+```sh
+./tg2prom.exe -aws-profile another-profile -target-group-arn "your-target-group-arn" -listening-port 8080 -job-name "your-job-name" -output "your-output-file.yaml"
+```
+
+If you prefer not to use the file-based method or are running the tool in an environment where setting up a credentials file is not feasible, you can directly provide AWS credentials via the `-aws-access-key-id` and `-aws-secret-access-key` flags. However, please be aware of the security implications of passing sensitive information through command-line arguments.
 
 ## Running the Application
 
@@ -66,7 +92,15 @@ labels:
   job: "example-service"
 ```
 
-This file should be placed in your Prometheus configuration directory or included in your `prometheus.yml` under the `scrape_configs` section.
+This file should be placed in your Prometheus configuration directory or included in your `prometheus.yml` under the `scrape_configs` section, in example like that:
+
+```sh
+scrape_configs:
+ - job_name: 'your-job-name'
+   file_sd_configs:
+    - files:
+       - 'your-output-file.yaml'
+```
 
 ## License
 

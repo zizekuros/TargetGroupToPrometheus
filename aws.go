@@ -11,14 +11,13 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2"
 )
 
-func getPublicIPsFromTargetGroup(targetGroupARN string, awsProfile string, accessKeyID string, secretAccessKey string) ([]string, error) {
+func getPublicIPsFromTargetGroup(targetGroupARN string, awsProfile string, awsAccessKeyID string, awsSecretAccessKey string) ([]string, error) {
 	var cfg aws.Config
 	var err error
 
-	if accessKeyID != "" && secretAccessKey != "" {
+	if awsAccessKeyID != "" && awsSecretAccessKey != "" {
 		// Use static credentials if both access key and secret key are provided
-		creds := aws.NewCredentialsCache(credentials.NewStaticCredentialsProvider(accessKeyID, secretAccessKey, ""))
-		cfg, err = config.LoadDefaultConfig(context.TODO(), config.WithCredentialsProvider(creds))
+		cfg, err = config.LoadDefaultConfig(context.TODO(), config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(awsAccessKeyID, awsSecretAccessKey, "")))
 	} else if awsProfile != "" {
 		// Use the specified AWS profile if provided
 		cfg, err = config.LoadDefaultConfig(context.TODO(), config.WithSharedConfigProfile(awsProfile))

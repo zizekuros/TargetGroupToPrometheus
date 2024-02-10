@@ -21,7 +21,7 @@
 go.work
 
 # Test yaml outputs
-.yaml
+*.yaml
 
 # Executable
 tg2prom
