@@ -31,7 +31,7 @@ go build -o tg2prom
 
 This command compiles the application and generates an executable named `tg2prom`.
 
-### AWS Credentials Configuration
+## AWS Credentials Configuration
 
 It is recommended to set up your AWS credentials using the file-based configuration method. This involves creating or updating the AWS credentials file typically located at `~/.aws/credentials` on Linux and macOS, or `%USERPROFILE%\.aws\credentials` on Windows. This file should contain your access key ID and secret access key under a profile name.
 
@@ -80,7 +80,7 @@ To run the tool with AWS credentials and target group details, use:
 - `aws-access-key-id`: AWS Access Key ID (optional, use if not using `aws-profile`).
 - `aws-secret-access-key`: AWS Secret Access Key (optional, use if not using `aws-profile`).
 
-## Example of Config Output
+## Example of Prometheus Config Output
 
 The following is an example of the YAML configuration output for Prometheus:
 
