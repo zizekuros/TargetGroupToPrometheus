@@ -9,6 +9,21 @@ It retrieves public IP addresses of instances registered with a specified target
 - Go 1.20 or newer.
 - An AWS account and credentials with permissions to access Elastic Load Balancing (ELB) and EC2 services.
 
+## Releases
+
+The v0.1.0 release marks the first version of `TargetGroupToPrometheus`, introducing the core functionality to interact with AWS Elastic Load Balancers and generate Prometheus configuration files. This release also includes executable binaries for Windows, Linux, and macOS, making it easier for users to run the tool without needing a Go development environment.
+
+### Features:
+- Retrieve public IP addresses from AWS ELB target groups.
+- Generate YAML configuration files for Prometheus.
+- Executable binaries available for:
+  - Windows (AMD64)
+  - Linux (AMD64)
+  - macOS (AMD64)
+
+You can find the binaries attached to the [v0.1.0 release](https://github.com/zizekuros/TargetGroupToPrometheus/releases/tag/v0.1.0) on GitHub.
+
+
 ## Building the application
 
 1. Clone the repository

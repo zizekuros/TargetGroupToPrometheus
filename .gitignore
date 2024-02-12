@@ -7,6 +7,9 @@
 *.dll
 *.so
 *.dylib
+tg2prom
+tg2prom-darwin-amd64
+tg2prom-linux-amd64
 
 # Test binary, built with `go test -c`
 *.test
@@ -22,6 +25,3 @@ go.work
 
 # Test yaml outputs
 *.yaml
-
-# Executable
-tg2prom
