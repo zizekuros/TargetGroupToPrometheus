@@ -100,11 +100,11 @@ To run the tool with AWS credentials and target group details, use:
 The following is an example of the YAML configuration output for Prometheus:
 
 ```yaml
-targets:
-  - "192.0.2.1:9090"
-  - "192.0.2.2:9090"
-labels:
-  job: "example-service"
+- targets:
+  - 192.0.2.1:9090
+  - 192.0.2.2:9090
+  labels:
+    job: example
 ```
 
 This file should be placed in your Prometheus configuration directory or included in your `prometheus.yml` under the `scrape_configs` section, in example like that:

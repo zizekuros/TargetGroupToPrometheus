@@ -8,6 +8,8 @@ import (
 )
 
 func generatePrometheusConfig(publicIPs []string, jobName string, listeningPort int, outputFileName string) error {
+	var config PrometheusConfig
+
 	// Prepare the targets with the port
 	var targets []string
 	for _, ip := range publicIPs {
@@ -15,11 +17,11 @@ func generatePrometheusConfig(publicIPs []string, jobName string, listeningPort 
 		targets = append(targets, target)
 	}
 
-	// Create the Prometheus configuration structure
-	config := PrometheusConfig{
+	// Since your desired format wraps each group in a list, you append a new TargetGroup
+	config = append(config, TargetGroup{
 		Targets: targets,
-	}
-	config.Labels.Job = jobName
+		Labels:  map[string]string{"job": jobName},
+	})
 
 	// Marshal the configuration to YAML
 	data, err := yaml.Marshal(&config)
