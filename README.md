@@ -119,4 +119,4 @@ scrape_configs:
 
 ## License
 
-`TargetGroupToPrometheus` is open-sourced under the MIT license. Feel free to clone, fork, modify, or use it in any way you see fit.
+Project is open-sourced (MIT license). Feel free to clone, fork, modify, or use it in any way you see fit.
