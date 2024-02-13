@@ -16,8 +16,6 @@ func generatePrometheusConfig(publicIPs []string, jobName string, listeningPort 
 		target := fmt.Sprintf("%s:%d", ip, listeningPort)
 		targets = append(targets, target)
 	}
-
-	// Since your desired format wraps each group in a list, you append a new TargetGroup
 	config = append(config, TargetGroup{
 		Targets: targets,
 		Labels:  map[string]string{"job": jobName},
